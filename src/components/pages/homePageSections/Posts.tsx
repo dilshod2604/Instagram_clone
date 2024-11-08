@@ -81,7 +81,7 @@ const Posts = () => {
                   )}
                 </div>
               )}
-              <PostActions />
+              <PostActions postId={post.id} />
             </div>
           ))}
         </div>

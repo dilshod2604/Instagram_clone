@@ -50,3 +50,11 @@ interface MediaPost {
   updatedAt: string;
   user: User;
 }
+
+interface PostLike {
+  userId: number;
+  postId: number;
+  createdAt: string;
+  updatedAt: string; 
+}
+
