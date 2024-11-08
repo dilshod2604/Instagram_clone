@@ -1,7 +1,12 @@
 import React from "react";
+import Posts from "./homePageSections/Posts";
 
 const HomePage = () => {
-  return <div>HomePage</div>;
+  return (
+    <>
+      <Posts />
+    </>
+  );
 };
 
 export default HomePage;

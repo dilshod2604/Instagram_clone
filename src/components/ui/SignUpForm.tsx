@@ -4,13 +4,13 @@ import { TextField } from "@mui/material";
 import { message } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React, { ChangeEvent, useState } from "react";
+import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 const SignUpForm = () => {
   const { register, handleSubmit } = useForm<ISignUp>();
   const router = useRouter();
 
-  const [signUp, { isSuccess, data }] = useSignUpMutation();
+  const [signUp, { data }] = useSignUpMutation();
   console.log(data);
   const onSubmit: SubmitHandler<ISignUp> = async (value) => {
     try {
@@ -21,11 +21,8 @@ const SignUpForm = () => {
         username: value.username,
         photo: value.photo,
       };
-      const res = await signUp(data);
-      if (isSuccess) {
-        message.success("Пользователь успешно зарегистрировался");
-        router.push("/auth/login");
-      }
+      await signUp(data);
+      router.push("/auth/login");
     } catch (error) {
       message.error("Ощибка при авторизацию");
     }

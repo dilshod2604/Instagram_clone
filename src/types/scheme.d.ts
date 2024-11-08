@@ -15,15 +15,38 @@ interface Authdata {
   accessTokenExpiration: number;
   refreshToken: string;
 }
+
 interface IProfile {
   profile: {
-    createdAt: string;
-    email: string;
     id: number;
+    username: string;
+    role: string;
+    email: string;
     isActive: boolean;
     photo: string;
-    role: string;
+    createdAt: string;
     updatedAt: string;
-    username: string;
   };
+}
+
+interface User {
+  id: number;
+  username: string;
+  role: "USER" | "ADMIN";
+  email: string;
+  isActive: boolean;
+  photo: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface MediaPost {
+  id: number;
+  userId: number;
+  caption: string;
+  mediaUrl: string;
+  mediaType: "PHOTO" | "VIDEO";
+  createdAt: string;
+  updatedAt: string;
+  user: User;
 }

@@ -1,15 +1,14 @@
 import React, { FC } from "react";
 import Sidebar from "./sideBar/Sidebar";
-import RightSideBar from "./rightSIdeBar/RightSideBar";
 interface LayoutSiteProps {
   children: React.ReactNode;
 }
 const LayoutSite: FC<LayoutSiteProps> = ({ children }) => {
   return (
-    <div className="flex w-full h-full">
+    <div className="flex w-full h-[737px] overflow-hidden ">
       <Sidebar />
-      <main>{children}</main>
-      <RightSideBar />
+      <main className="w-full overflow-x-auto">{children}</main>
+      {/* <RightSideBar /> */}
     </div>
   );
 };
