@@ -1,35 +1,43 @@
 "use client";
 import React from "react";
-import { useSignInMutation, useSignUpMutation } from "@/redux/api/auth";
+import Cookies from "js-cookie";
+import { useSignInMutation } from "@/redux/api/auth";
 import { TextField } from "@mui/material";
 import { message } from "antd";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
+
 const SignInForm = () => {
   const { register, handleSubmit } = useForm<ISignUp>();
   const router = useRouter();
+  const [signIn] = useSignInMutation();
 
-  const [signIn, { isSuccess, data }] = useSignInMutation();
   const onSubmit: SubmitHandler<ILogin> = async (value) => {
     try {
-      const data = {
+      const res = await signIn({
         email: value.email,
         password: value.password,
-      };
-      const res = await signIn(data);
-      message.success("Вход прошел успешно");
-      router.push("/");
+      });
+
+      if ("data" in res && res.data?.accessToken) {
+        Cookies.set("accessToken", res.data.accessToken, {
+          expires: 7,
+          secure: true,
+          sameSite: "strict",
+        });
+        router.push("/");
+      } else {
+        throw new Error("Токен не получен");
+      }
     } catch (error) {
-      message.error("Ощибка при входе");
+      message.error("Ошибка при входе");
     }
   };
+
   return (
-    <div className="flex flex-col ">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col gap-y-2 "
-      >
+    <div className="flex flex-col">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-2">
         <TextField
           size="small"
           type="text"

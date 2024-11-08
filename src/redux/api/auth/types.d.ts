@@ -2,6 +2,9 @@ namespace AUTH {
   type SignUpResponse = void;
   type SignUpRequest = ISignUp;
 
-  type SignInResponse = void;
+  type SignInResponse = Authdata;
   type SignInRequest = ILogin;
+
+  type GetMeResponse = IProfile;
+  type GetMeRequest = void;
 }

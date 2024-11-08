@@ -3,6 +3,7 @@ import { navLinks } from "@/constants/links";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
+import ProfileButton from "./ProfileButton";
 
 const NavBar = () => {
   const pathName = usePathname();
@@ -38,6 +39,7 @@ const NavBar = () => {
           )}
         </li>
       ))}
+      <ProfileButton />
     </ul>
   );
 };
