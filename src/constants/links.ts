@@ -39,9 +39,4 @@ export const navLinks: { name: string; icon: IconType; href: string }[] = [
     icon: FaRegHeart,
     href: "/notification",
   },
-  {
-    name: "Создать",
-    icon: FiPlusSquare,
-    href: "/create",
-  },
 ];

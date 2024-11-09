@@ -9,9 +9,8 @@ interface PostActionsProps {
   postId: number;
 }
 const PostActions: FC<PostActionsProps> = ({ postId }) => {
-  // const { data } = useIsLikedQuery(605);
   const [toLike,{data}] = useToLikeMutation();
-
+  
   const like = async () => {
     try {
       await toLike(postId);
