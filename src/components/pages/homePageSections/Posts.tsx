@@ -4,6 +4,7 @@ import Postheader from "@/components/ui/Postheader";
 import { useGetAllPostsQuery } from "@/redux/api/posts";
 import PostActions from "@/components/ui/PostActions";
 import { MdVolumeOff, MdVolumeUp } from "react-icons/md";
+import LikedUsersModal from "@/components/ui/LikedUsersModal";
 
 const Posts = () => {
   const { data: posts } = useGetAllPostsQuery();
@@ -86,6 +87,7 @@ const Posts = () => {
           ))}
         </div>
       </div>
+      <LikedUsersModal />
     </section>
   );
 };

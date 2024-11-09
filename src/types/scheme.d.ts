@@ -76,7 +76,12 @@ interface UploadFileData {
 }
 interface PostLikeInfo {
   isLike: boolean;
-  likedUsers: string[];
+  likedUsers: LikedUsers[];
   likesCount: number;
   postId: number;
+}
+interface LikedUsers {
+  likedAt: string;
+  photo: string;
+  username: string;
 }
