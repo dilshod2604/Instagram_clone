@@ -7,7 +7,7 @@ import { MdVolumeOff, MdVolumeUp } from "react-icons/md";
 
 const Posts = () => {
   const { data: posts } = useGetAllPostsQuery();
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]); // Массив для рефов
   const activeVideoRef = useRef<HTMLVideoElement | null>(null);
   const [volumeStates, setVolumeStates] = useState<boolean[]>([]);
 

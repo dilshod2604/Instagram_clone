@@ -1,20 +1,15 @@
 "use client";
-import * as React from "react";
-import { useCreateProductStore } from "@/app/store/useCreateProductStore";
-import { Modal } from "antd";
+import React from "react";
+import { useUploadFileStore } from "@/app/store/useUploadFileStore";
+import { Modal } from "@mui/material";
 interface TransitionsModal {
-  children: React.ReactNode;
+  children: React.ReactElement;
 }
 const TransitionsModal: React.FC<TransitionsModal> = ({ children }) => {
-  const { open, handleClose } = useCreateProductStore();
+  const { open, handleClose } = useUploadFileStore();
   return (
     <div>
-      <Modal
-        title="Создание публикации"
-        open={open}
-        footer={null}
-        onCancel={() => handleClose(false)}
-      >
+      <Modal open={open} onClose={() => handleClose(false)}>
         {children}
       </Modal>
     </div>

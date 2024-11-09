@@ -2,18 +2,30 @@
 import { navLinks } from "@/constants/links";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React, { useState } from "react";
+import React from "react";
 import ProfileButton from "./ProfileButton";
-import { Box, Fade, Icon, Menu, MenuItem } from "@mui/material";
+import { Box, Menu, MenuItem } from "@mui/material";
 import { FiPlusSquare } from "react-icons/fi";
 import { TbPhotoVideo } from "react-icons/tb";
 import { HiOutlineSignal } from "react-icons/hi2";
-import { useCreateProductStore } from "@/app/store/useCreateProductStore";
+import { useUploadFileStore } from "@/app/store/useUploadFileStore";
 import TransitionsModal from "../shared/Modal";
+import UploadFile from "./UploadFile";
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
 const NavBar = () => {
   const pathName = usePathname();
-  const { setIsOpen, } = useCreateProductStore();
+  const { setIsOpen } = useUploadFileStore();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -24,7 +36,6 @@ const NavBar = () => {
     setAnchorEl(null);
   };
 
-  
   return (
     <>
       <ul className="flex flex-col gap-y-3">
@@ -89,15 +100,9 @@ const NavBar = () => {
         <ProfileButton />
       </ul>
       <TransitionsModal>
-        <div className="w-full h-[400px] flex flex-col items-center justify-center gap-y-3 ">
-          <TbPhotoVideo size={70} className="text-neutral-700" />
-          <p className="text-xl text-neutral-700 text-center">
-            Перетащите сюда фото и видео
-          </p>
-          <button className="bg-blue-500 py-1 px-3 rounded-xl text-white flex items-center justify-center hover:opacity-75 transition-all">
-            Выбрать на копьютере
-          </button>
-        </div>
+        <Box sx={style}>
+          <UploadFile />
+        </Box>
       </TransitionsModal>
     </>
   );

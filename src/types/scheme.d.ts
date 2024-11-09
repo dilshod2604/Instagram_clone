@@ -57,4 +57,17 @@ interface PostLike {
   createdAt: string;
   updatedAt: string; 
 }
+interface FileMetadata {
+  name: string;
+  lastModified: number;
+  lastModifiedDate: Date;
+  size: number;
+  type: string;
+  webkitRelativePath: string;
+}
+interface UploadFileData {
+  format: string;
+  name: string;
+  url: string;
+}
 
