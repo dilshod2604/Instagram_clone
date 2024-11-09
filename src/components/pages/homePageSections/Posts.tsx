@@ -48,7 +48,7 @@ const Posts = () => {
                 userName={post.user.username}
               />
               {post.mediaType === "PHOTO" ? (
-                <div className="max-w-[468px] h-[400px] overflow-hidden rounded-md">
+                <div className="max-w-[468px] h-[400px] overflow-hidden rounded-md ">
                   <img
                     src={post.mediaUrl}
                     alt="media"

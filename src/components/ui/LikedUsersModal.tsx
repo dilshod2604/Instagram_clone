@@ -35,7 +35,7 @@ const LikedUsersModal = () => {
     >
       <Fade in={isOpen}>
         <Box sx={style}>
-          <div className=" relative flex flex-col h-[400px] overflow-hidden gap-y-5">
+          <div className=" relative flex flex-col max-h-[300px] overflow-hidden gap-y-5">
             <h1 className="text-black w-full text-center py-2 border-b-2 font-bold sticky">
               Отметки "Нравится"
             </h1>

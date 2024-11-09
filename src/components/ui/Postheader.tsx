@@ -8,7 +8,7 @@ const Postheader: FC<PostheaderProps> = ({ photo, userName }) => {
   return (
     <div className="flex items-center justify-between">
       <div className="flex items-center gap-x-3 ">
-        <div className="flex items-center justify-center w-[32px] h-[32px] rounded-full overflow-hidden">
+        <div className="flex items-center justify-center w-[32px] h-[32px] rounded-full overflow-hidden cursor-pointer">
           <img
             src={photo}
             alt="photo"
@@ -18,7 +18,9 @@ const Postheader: FC<PostheaderProps> = ({ photo, userName }) => {
           />
         </div>
 
-        <p className="text-sm font-bold text-black">{userName}</p>
+        <p className="text-sm font-bold text-black cursor-pointer">
+          {userName}
+        </p>
       </div>
       <HiDotsHorizontal size={20} className="text-blck hover:scale-110" />
     </div>

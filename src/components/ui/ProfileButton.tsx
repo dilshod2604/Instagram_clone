@@ -18,9 +18,9 @@ const ProfileButton = () => {
     <li>
       <Link
         href="/my-profile"
-        className="hover:bg-neutral-100 rounded-md px-2 py-3 flex items-center gap-x-4"
+        className="md:hover:bg-neutral-100 rounded-md px-2 py-3 flex items-center gap-x-4 hover:scale-105"
       >
-        {data?.profile.photo? (
+        {data?.profile.photo ? (
           <div className="w-7 h-7 rounded-full overflow-hidden">
             <img
               src={data.profile.photo}
@@ -35,7 +35,7 @@ const ProfileButton = () => {
             <span className="text-sm text-white">?</span>
           </div>
         )}
-        <p className="text-black text-lg">Профиль</p>
+        <p className="text-black text-lg max-md:hidden">Профиль</p>
       </Link>
     </li>
   );
