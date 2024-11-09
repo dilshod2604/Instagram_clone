@@ -18,7 +18,17 @@ const api = index.injectEndpoints({
       }),
       providesTags: ["like"],
     }),
+    unLike: build.mutation<LIKE.UnLikeResponse, LIKE.UnLikeRequest>({
+      query: (postId) => ({
+        url: "/post/unlike",
+        method: "DELETE",
+        body: {
+          postId,
+        },
+      }),
+      invalidatesTags: ["like"],
+    }),
   }),
 });
 
-export const { useToLikeMutation, useIsLikedQuery } = api;
+export const { useToLikeMutation, useIsLikedQuery, useUnLikeMutation } = api;

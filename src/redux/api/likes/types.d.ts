@@ -2,6 +2,9 @@ namespace LIKE {
   type ToLikeResponse = PostLike;
   type ToLikeRequest = number;
 
-  type IsLikedResponse = any;
+  type IsLikedResponse = PostLikeInfo;
   type IsLikedRequest = number;
+
+  type UnLikeResponse = PostUnLike;
+  type UnLikeRequest = number;
 }

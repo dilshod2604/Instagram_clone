@@ -55,7 +55,11 @@ interface PostLike {
   userId: number;
   postId: number;
   createdAt: string;
-  updatedAt: string; 
+  updatedAt: string;
+}
+interface PostUnLike {
+  userId: number;
+  postId: number;
 }
 interface FileMetadata {
   name: string;
@@ -70,4 +74,9 @@ interface UploadFileData {
   name: string;
   url: string;
 }
-
+interface PostLikeInfo {
+  isLike: boolean;
+  likedUsers: string[];
+  likesCount: number;
+  postId: number;
+}
