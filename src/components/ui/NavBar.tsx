@@ -138,7 +138,8 @@ const NavBar = () => {
             }}
           >
             <MenuItem onClick={openModal} className="flex items-center gap-x-5">
-              Публикация <TbPhotoVideo size={30} className="text-black" />
+              Публикация
+              <TbPhotoVideo size={30} className="text-black" />
             </MenuItem>
             <MenuItem onClick={openModal} className="flex items-center gap-x-5">
               Прямой Эфир <HiOutlineSignal size={30} className="text-black" />
