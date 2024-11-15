@@ -38,7 +38,7 @@ const Posts = () => {
   if (!posts) return null;
 
   return (
-    <section className="w-full overflow-auto">
+    <section className="w-full overflow-auto ">
       <div className="max-w-[630px] flex flex-col items-center px-[40px]">
         <div className="flex flex-col gap-y-4 ">
           {posts.map((post, index) => (
